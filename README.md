@@ -16,15 +16,14 @@ Just for fun, I try to realize the amazing menu for android, which could be equa
 To setup the menu:
 
 ``` java
+ArcMenu menu = (ArcMenu) findViewById(R.id.arc_menu);
 
-        ArcMenu menu = (ArcMenu) findViewById(R.id.arc_menu);
-
-        final int itemCount = ITEM_DRAWABLES.length;
-        for (int i = 0; i < itemCount; i++) {
-            ImageView item = new ImageView(this);
-            item.setImageResource(ITEM_DRAWABLES[i]);
-            menu.addItem(item, null);// Add a menu item
-        }
+final int itemCount = ITEM_DRAWABLES.length;
+for (int i = 0; i < itemCount; i++) {
+     ImageView item = new ImageView(this);
+     item.setImageResource(ITEM_DRAWABLES[i]);
+     menu.addItem(item, null);// Add a menu item
+}
 ```
 
 If you want to change the default appearence:
@@ -37,11 +36,9 @@ in arc_menu.xml
 
 or in ArcMenu.java
 
-``` java
-    
-    arcLayout.setChildSize(50);
-    arcLayout.setArc(0.0f, 300.0f);
-    
+``` java    
+arcLayout.setChildSize(50);
+arcLayout.setArc(0.0f, 300.0f);    
 ```
 
 ##Author
