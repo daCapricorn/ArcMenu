@@ -18,7 +18,10 @@ package com.capricorn;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * 
@@ -41,7 +44,15 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < itemCount; i++) {
 			ImageView item = new ImageView(this);
 			item.setImageResource(ITEM_DRAWABLES[i]);
-			menu.addItem(item, null);// Add a menu item
+
+			final int position = i;
+			menu.addItem(item, new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(MainActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+				}
+			});// Add a menu item
 		}
 	}
 }

@@ -291,6 +291,8 @@ public class ArcLayout extends ViewGroup {
         if (!showAnimation) {
             requestLayout();
         }
+        
+        invalidate();
     }
 
     private void onAllAnimationsEnd() {

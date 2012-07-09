@@ -20,9 +20,17 @@ ArcMenu menu = (ArcMenu) findViewById(R.id.arc_menu);
 
 final int itemCount = ITEM_DRAWABLES.length;
 for (int i = 0; i < itemCount; i++) {
-     ImageView item = new ImageView(this);
-     item.setImageResource(ITEM_DRAWABLES[i]);
-     menu.addItem(item, null);// Add a menu item
+	ImageView item = new ImageView(this);
+	item.setImageResource(ITEM_DRAWABLES[i]);
+
+	final int position = i;
+	menu.addItem(item, new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			Toast.makeText(MainActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+		}
+	});// Add a menu item
 }
 ```
 
