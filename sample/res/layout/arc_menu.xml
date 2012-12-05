@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <com.capricorn.ArcLayout
-        xmlns:custom="http://schemas.android.com/apk/res/com.capricorn"
+        xmlns:custom="http://schemas.android.com/apk/res/com.capricorn.example"
         android:id="@+id/item_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
