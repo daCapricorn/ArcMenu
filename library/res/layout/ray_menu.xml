@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <com.capricorn.RayLayout
-        xmlns:custom="http://schemas.android.com/apk/res/com.capricorn.example"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/item_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
