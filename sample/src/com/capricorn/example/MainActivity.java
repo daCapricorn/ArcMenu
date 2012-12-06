@@ -73,4 +73,8 @@ public class MainActivity extends Activity {
 			});// Add a menu item
 		}
 	}
+
+    public void dummy_click(View v) {
+        Toast.makeText(MainActivity.this, "è stato stocazzo", Toast.LENGTH_SHORT).show();
+    }
 }

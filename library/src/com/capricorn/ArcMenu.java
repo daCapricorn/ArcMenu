@@ -54,6 +54,25 @@ public class ArcMenu extends RelativeLayout {
         init(context);
     }
 
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        /*
+         *  remove the ImageView childs and reattach it to the ArcLayout
+         */
+        int count = this.getChildCount();
+
+        for (int cycle = 0 ; cycle < count ; cycle++) {
+            Object obj = this.getChildAt(cycle);
+            if (obj instanceof android.widget.ImageView) {
+                this.removeView((ImageView)obj);
+
+                mArcLayout.addView((ImageView)obj);
+            }
+        }
+    }
+
     private void init(Context context) {
         LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         li.inflate(R.layout.arc_menu, this);
