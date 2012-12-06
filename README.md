@@ -60,6 +60,10 @@ or in **ArcMenu.java**
 arcLayout.setChildSize(50);
 arcLayout.setArc(0.0f, 300.0f);    
 ```
+##TODO
+
+Use attribute like ``custom:childSize`` directly into ``RayMenu`` and ``ArcMenu`` XML declaration. Also
+indicate the ``Drawable`` instances as sub elements of these tags.
 
 ##Author
 
