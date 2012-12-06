@@ -102,46 +102,50 @@ public class ArcMenu extends RelativeLayout {
         item.setOnClickListener(getItemClickListener(listener));
     }
 
+    public void offMenuAnimation(View viewClicked) {
+        Animation animation = bindItemAnimation(viewClicked, true, 400);
+        animation.setAnimationListener(new AnimationListener() {
+
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                    itemDidDisappear();
+                    }
+                    }, 0);
+                }
+        });
+
+        final int itemCount = mArcLayout.getChildCount();
+        for (int i = 0; i < itemCount; i++) {
+            View item = mArcLayout.getChildAt(i);
+            if (viewClicked != item) {
+                bindItemAnimation(item, false, 300);
+            }
+        }
+
+        mArcLayout.invalidate();
+        mHintView.startAnimation(createHintSwitchAnimation(true));
+    }
+
     private OnClickListener getItemClickListener(final OnClickListener listener) {
         return new OnClickListener() {
 
             @Override
             public void onClick(final View viewClicked) {
-                Animation animation = bindItemAnimation(viewClicked, true, 400);
-                animation.setAnimationListener(new AnimationListener() {
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        postDelayed(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                itemDidDisappear();
-                            }
-                        }, 0);
-                    }
-                });
-
-                final int itemCount = mArcLayout.getChildCount();
-                for (int i = 0; i < itemCount; i++) {
-                    View item = mArcLayout.getChildAt(i);
-                    if (viewClicked != item) {
-                        bindItemAnimation(item, false, 300);
-                    }
-                }
-
-                mArcLayout.invalidate();
-                mHintView.startAnimation(createHintSwitchAnimation(true));
+                offMenuAnimation(viewClicked);
 
                 if (listener != null) {
                     listener.onClick(viewClicked);
