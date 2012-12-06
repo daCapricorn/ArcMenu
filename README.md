@@ -16,6 +16,15 @@ Just for fun, I try to realize the amazing menu for android, which could be equa
 
 ##Usage
 
+If you want to use this library you must before all indicate to your application
+that you want to use it by launching the following command from the root
+directory of your application
+
+```
+$ android update project --library ../relative/path/to/the/library --path .
+```
+where the path is the relative path to the ``library`` directory in this repository.
+
 To setup the menu:
 
 ``` java
