@@ -65,6 +65,9 @@ arcLayout.setArc(0.0f, 300.0f);
 Use attribute like ``custom:childSize`` directly into ``RayMenu`` and ``ArcMenu`` XML declaration. Also
 indicate the ``Drawable`` instances as sub elements of these tags.
 
+A better refactoring would be create a super class to subclass in order to create more easily more
+customizable animations.
+
 ##Author
 
 **Capricorn**
