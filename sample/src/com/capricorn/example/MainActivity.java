@@ -35,13 +35,15 @@ public class MainActivity extends Activity {
 	private static final int[] ITEM_DRAWABLES = { R.drawable.composer_camera, R.drawable.composer_music,
 			R.drawable.composer_place, R.drawable.composer_sleep, R.drawable.composer_thought, R.drawable.composer_with };
 
+    private ArcMenu mArcMenu;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		ArcMenu arcMenu = (ArcMenu) findViewById(R.id.arc_menu);
+		mArcMenu = (ArcMenu) findViewById(R.id.arc_menu);
 
 		final int itemCount = ITEM_DRAWABLES.length;
 		for (int i = 0; i < itemCount; i++) {
@@ -49,7 +51,7 @@ public class MainActivity extends Activity {
 			item.setImageResource(ITEM_DRAWABLES[i]);
 
 			final int position = i;
-			arcMenu.addItem(item, new OnClickListener() {
+		    mArcMenu.addItem(item, new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
@@ -73,4 +75,9 @@ public class MainActivity extends Activity {
 			});// Add a menu item
 		}
 	}
+
+    public void dummy_click(View v) {
+        Toast.makeText(MainActivity.this, "è stato stocazzo", Toast.LENGTH_SHORT).show();
+        mArcMenu.offMenuAnimation(v);
+    }
 }
