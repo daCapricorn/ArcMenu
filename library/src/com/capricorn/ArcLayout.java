@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -124,8 +125,8 @@ public class ArcLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        final int centerX = getWidth() / 2;
-        final int centerY = getHeight() / 2;
+    	final int centerX = 0 + (mChildSize - mLayoutPadding);
+        final int centerY = getHeight() - (mChildSize - mLayoutPadding);
         final int radius = mExpanded ? mRadius : 0;
 
         final int childCount = getChildCount();
@@ -201,8 +202,10 @@ public class ArcLayout extends ViewGroup {
 
     private void bindChildAnimation(final View child, final int index, final long duration) {
         final boolean expanded = mExpanded;
-        final int centerX = getWidth() / 2;
-        final int centerY = getHeight() / 2;
+        /*final int centerX = getWidth() / 2;
+        final int centerY = getHeight() / 2;*/
+        final int centerX = 0 + (mChildSize - mLayoutPadding);
+        final int centerY = getHeight() - (mChildSize - mLayoutPadding);
         final int radius = expanded ? 0 : mRadius;
 
         final int childCount = getChildCount();

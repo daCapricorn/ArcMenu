@@ -6,16 +6,18 @@
         android:id="@+id/item_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        custom:childSize="44px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        custom:childSize="30dp"
         custom:fromDegrees="270.0"
         custom:toDegrees="360.0" />
 
     <FrameLayout
         android:id="@+id/control_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/composer_button" >
 
         <ImageView
