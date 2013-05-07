@@ -9,6 +9,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         custom:childSize="30dp"
+        custom:controlSize="45dp"
         custom:fromDegrees="270.0"
         custom:toDegrees="360.0" />
 
