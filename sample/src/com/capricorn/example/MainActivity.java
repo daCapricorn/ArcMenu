@@ -33,7 +33,7 @@ import com.capricorn.RayMenu;
  */
 public class MainActivity extends Activity {
 	private static final int[] ITEM_DRAWABLES = { R.drawable.composer_camera, R.drawable.composer_music,
-			R.drawable.composer_place, R.drawable.composer_sleep, R.drawable.composer_thought, R.drawable.composer_with };
+			R.drawable.composer_place};
 
 	/** Called when the activity is first created. */
 	@Override

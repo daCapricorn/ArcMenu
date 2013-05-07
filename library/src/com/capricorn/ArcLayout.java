@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -45,6 +46,8 @@ public class ArcLayout extends ViewGroup {
      * children will be set the same size.
      */
     private int mChildSize;
+    
+    private int mControlSize;
 
     private int mChildPadding = 5;
 
@@ -58,7 +61,7 @@ public class ArcLayout extends ViewGroup {
 
     private float mToDegrees = DEFAULT_TO_DEGREES;
 
-    private static final int MIN_RADIUS = 100;
+    private static final int MIN_RADIUS = 1;
 
     /* the distance between the layout's center and any child's center */
     private int mRadius;
@@ -76,8 +79,9 @@ public class ArcLayout extends ViewGroup {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ArcLayout, 0, 0);
             mFromDegrees = a.getFloat(R.styleable.ArcLayout_fromDegrees, DEFAULT_FROM_DEGREES);
             mToDegrees = a.getFloat(R.styleable.ArcLayout_toDegrees, DEFAULT_TO_DEGREES);
-            mChildSize = Math.max(a.getDimensionPixelSize(R.styleable.ArcLayout_childSize, 0), 0);
-
+            mChildSize = Math.max((int)a.getDimension(R.styleable.ArcLayout_childSize, 0), 0);
+            mControlSize = Math.max((int)a.getDimension(R.styleable.ArcLayout_controlSize, 0), 0);
+          
             a.recycle();
         }
     }
@@ -92,7 +96,7 @@ public class ArcLayout extends ViewGroup {
         final float perHalfDegrees = perDegrees / 2;
         final int perSize = childSize + childPadding;
 
-        final int radius = (int) ((perSize / 2) / Math.sin(Math.toRadians(perHalfDegrees)));
+        final int radius = (int) ((perSize / 3 * 2 ) / Math.sin(Math.toRadians(perHalfDegrees)));
 
         return Math.max(radius, minRadius);
     }
@@ -112,8 +116,10 @@ public class ArcLayout extends ViewGroup {
         final int radius = mRadius = computeRadius(Math.abs(mToDegrees - mFromDegrees), getChildCount(), mChildSize,
                 mChildPadding, MIN_RADIUS);
         final int size = radius * 2 + mChildSize + mChildPadding + mLayoutPadding * 2;
-
+        
         setMeasuredDimension(size, size);
+        
+        
 
         final int count = getChildCount();
         for (int i = 0; i < count; i++) {
@@ -124,8 +130,8 @@ public class ArcLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        final int centerX = getWidth() / 2;
-        final int centerY = getHeight() / 2;
+    	final int centerX = 0 + (mControlSize/2);
+        final int centerY = getHeight() - (mControlSize/2);
         final int radius = mExpanded ? mRadius : 0;
 
         final int childCount = getChildCount();
@@ -201,8 +207,8 @@ public class ArcLayout extends ViewGroup {
 
     private void bindChildAnimation(final View child, final int index, final long duration) {
         final boolean expanded = mExpanded;
-        final int centerX = getWidth() / 2;
-        final int centerY = getHeight() / 2;
+        final int centerX = 0 + (mControlSize/2);
+        final int centerY = getHeight() - (mControlSize/2);
         final int radius = expanded ? 0 : mRadius;
 
         final int childCount = getChildCount();

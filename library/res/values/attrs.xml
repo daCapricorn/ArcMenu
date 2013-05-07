@@ -4,6 +4,7 @@
 		<attr name="fromDegrees" format="float" />
 		<attr name="toDegrees" format="float" />
 		<attr name="childSize" format="dimension" />
+		<attr name="controlSize" format="dimension" />
 	</declare-styleable>
 	
 	<declare-styleable name="RayLayout">
