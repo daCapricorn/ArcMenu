@@ -273,6 +273,10 @@ public class ArcLayout extends ViewGroup {
         requestLayout();
     }
 
+    public int getChildSize() {
+        return mChildSize;
+    }
+
     /**
      * switch between expansion and shrinkage
      * 

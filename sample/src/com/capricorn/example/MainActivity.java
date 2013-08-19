@@ -42,23 +42,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 
 		ArcMenu arcMenu = (ArcMenu) findViewById(R.id.arc_menu);
+        ArcMenu arcMenu2 = (ArcMenu) findViewById(R.id.arc_menu_2);
 
-		final int itemCount = ITEM_DRAWABLES.length;
-		for (int i = 0; i < itemCount; i++) {
-			ImageView item = new ImageView(this);
-			item.setImageResource(ITEM_DRAWABLES[i]);
-
-			final int position = i;
-			arcMenu.addItem(item, new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					Toast.makeText(MainActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
-				}
-			});// Add a menu item
-		}
+        initArcMenu(arcMenu, ITEM_DRAWABLES);
+        initArcMenu(arcMenu2, ITEM_DRAWABLES);
 
 		RayMenu rayMenu = (RayMenu) findViewById(R.id.ray_menu);
+        final int itemCount = ITEM_DRAWABLES.length;
 		for (int i = 0; i < itemCount; i++) {
 			ImageView item = new ImageView(this);
 			item.setImageResource(ITEM_DRAWABLES[i]);
@@ -73,4 +63,21 @@ public class MainActivity extends Activity {
 			});// Add a menu item
 		}
 	}
+
+    private void initArcMenu(ArcMenu menu, int[] itemDrawables) {
+        final int itemCount = itemDrawables.length;
+        for (int i = 0; i < itemCount; i++) {
+            ImageView item = new ImageView(this);
+            item.setImageResource(itemDrawables[i]);
+
+            final int position = i;
+            menu.addItem(item, new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "position:" + position, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 }

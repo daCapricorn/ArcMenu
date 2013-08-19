@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="menuFromDegrees" format="float" type="dimen">180.0</item>
+    <item name="menuToDegrees" format="float" type="dimen">360.0</item>
+    <dimen name="menuChildSize">30dp</dimen>
+</resources>
