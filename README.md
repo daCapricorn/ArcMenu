@@ -1,20 +1,20 @@
-#ArcMenu & RayMenu
-##ArcMenu
+# ArcMenu & RayMenu
+## ArcMenu
 
 An android custom view which looks like the menu in [Path 2.0](https://path.com/) (for iOS).
 
 ![Preview](https://dl.dropbox.com/u/11369687/preview0.png)
 ![Preview](https://dl.dropbox.com/u/11369687/preview1.png)
 
-##RayMenu
+## RayMenu
 ![Preview](https://dl.dropbox.com/u/11369687/raymenu.png)
-##About
+## About
 
 The user experience in [Path 2.0](https://path.com/) (for iOS) is amazing, but the android version miss much.
 
 Just for fun, I try to realize the amazing menu for android, which could be equal to the iOS version's.
 
-##Usage
+## Usage
 
 If you want to use this library you must before all indicate to your application
 that you want to use it by launching the following command from the root
@@ -60,12 +60,12 @@ or in **ArcMenu.java**
 arcLayout.setChildSize(50);
 arcLayout.setArc(0.0f, 300.0f);    
 ```
-##TODO
+## TODO
 
 Use attribute like ``custom:childSize`` directly into ``RayMenu`` and ``ArcMenu`` XML declaration. Also
 indicate the ``Drawable`` instances as sub elements of these tags.
 
-##Author
+## Author
 
 **Capricorn**
 
