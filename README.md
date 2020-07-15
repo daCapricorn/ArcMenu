@@ -3,11 +3,11 @@
 
 An android custom view which looks like the menu in [Path 2.0](https://path.com/) (for iOS).
 
-![Preview](https://dl.dropbox.com/u/11369687/preview0.png)
-![Preview](https://dl.dropbox.com/u/11369687/preview1.png)
+![Preview](https://ipfs.io/ipfs/QmYPehihi4ZbmFf1vhxCkTV7WTgxck5fxb5B7aGCBCKi27)
+![Preview](https://ipfs.io/ipfs/QmdE9P5FYq1goN4dM5L8r8ADqS2HdbzYLKTCEVKrHjh6gp)
 
 ## RayMenu
-![Preview](https://dl.dropbox.com/u/11369687/raymenu.png)
+![Preview](https://ipfs.io/ipfs/QmW2nUZrEreYUMzgvApoSQQbx5wJ5UGJwXjkYDPdd1twbo)
 ## About
 
 The user experience in [Path 2.0](https://path.com/) (for iOS) is amazing, but the android version miss much.
@@ -60,22 +60,3 @@ or in **ArcMenu.java**
 arcLayout.setChildSize(50);
 arcLayout.setArc(0.0f, 300.0f);    
 ```
-## TODO
-
-Use attribute like ``custom:childSize`` directly into ``RayMenu`` and ``ArcMenu`` XML declaration. Also
-indicate the ``Drawable`` instances as sub elements of these tags.
-
-## Author
-
-**Capricorn**
-
-I'm glad to make friends with the people who persist in faith and follow their dreams.
-
-Please let me know you are around.
-
-Google+: [+魔羯](https://plus.google.com/107460592910747948011)
-
-
-
-
-
