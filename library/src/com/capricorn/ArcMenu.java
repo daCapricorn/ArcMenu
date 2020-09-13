@@ -44,6 +44,8 @@ public class ArcMenu extends RelativeLayout {
     private ArcLayout mArcLayout;
 
     private ImageView mHintView;
+    
+    ViewGroup controlLayout;
 
     public ArcMenu(Context context) {
         super(context);
@@ -62,14 +64,14 @@ public class ArcMenu extends RelativeLayout {
 
         mArcLayout = (ArcLayout) findViewById(R.id.item_layout);
 
-        final ViewGroup controlLayout = (ViewGroup) findViewById(R.id.control_layout);
+        controlLayout = (ViewGroup) findViewById(R.id.control_layout);
         controlLayout.setClickable(true);
         controlLayout.setOnTouchListener(new OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    mHintView.startAnimation(createHintSwitchAnimation(mArcLayout.isExpanded()));
+                    controlLayout.startAnimation(createHintSwitchAnimation(mArcLayout.isExpanded()));
                     mArcLayout.switchState(true);
                 }
 
@@ -140,7 +142,7 @@ public class ArcMenu extends RelativeLayout {
                 }
 
                 mArcLayout.invalidate();
-                mHintView.startAnimation(createHintSwitchAnimation(true));
+                controlLayout.startAnimation(createHintSwitchAnimation(true));
 
                 if (listener != null) {
                     listener.onClick(viewClicked);
@@ -180,13 +182,27 @@ public class ArcMenu extends RelativeLayout {
     }
 
     private static Animation createHintSwitchAnimation(final boolean expanded) {
-        Animation animation = new RotateAnimation(expanded ? 45 : 0, expanded ? 0 : 45, Animation.RELATIVE_TO_SELF,
+        
+         AnimationSet set = new AnimationSet(false);
+        Animation animation;
+        animation = new RotateAnimation(expanded ? 405 : 0, expanded ? 0 : 405,
+                Animation.RELATIVE_TO_SELF,
                 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setStartOffset(0);
-        animation.setDuration(100);
+        animation.setDuration(300);
         animation.setInterpolator(new DecelerateInterpolator());
         animation.setFillAfter(true);
+        animation.setFillEnabled(true);
+        set.setFillAfter(true);
+        set.addAnimation(animation);
+        animation = new ScaleAnimation(1.0f, expanded ? 1f : 0.8f, 1.0f, expanded ? 1f : 0.8f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f);
+        animation.setDuration(300);
+        animation.setInterpolator(new OvershootInterpolator(0.0f));
+        animation.setFillAfter(false);
+        set.addAnimation(animation);
 
-        return animation;
+        return set;
     }
 }
