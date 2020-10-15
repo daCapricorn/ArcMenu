@@ -136,6 +136,11 @@ public class ArcLayout extends ViewGroup {
             Rect frame = computeChildFrame(centerX, centerY, radius, degrees, mChildSize);
             degrees += perDegrees;
             getChildAt(i).layout(frame.left, frame.top, frame.right, frame.bottom);
+            if(isExpanded()){
+            	getChildAt(i).setVisibility(View.VISIBLE);
+            }else{
+            	getChildAt(i).setVisibility(View.INVISIBLE);
+            }
         }
     }
 
